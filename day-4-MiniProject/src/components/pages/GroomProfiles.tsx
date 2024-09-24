@@ -9,18 +9,18 @@ interface Profile {
   location: string;
 }
 
-export default function BrideProfiles() {
+export default function GroomProfiles() {
   const [profiles, setProfiles] = useState<Profile[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/profiles?type=bride')
+    fetch('http://localhost:3001/profiles?type=groom')
       .then(response => response.json())
       .then(data => setProfiles(data));
   }, []);
 
   return (
     <div>
-      <h2>Bride Profiles</h2>
+      <h2>Groom Profiles</h2>
       {profiles.map(profile => (
         <div key={profile.id}>
           <h3>{profile.name}</h3>
