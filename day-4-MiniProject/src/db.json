@@ -1,0 +1,36 @@
+{
+  "profiles": [
+    {
+      "id": 1,
+      "type": "groom",
+      "name": "John Doe",
+      "age": 28,
+      "occupation": "Software Engineer",
+      "location": "New York, NY"
+    },
+    {
+      "id": 2,
+      "type": "groom",
+      "name": "Mike Smith",
+      "age": 32,
+      "occupation": "Doctor",
+      "location": "Los Angeles, CA"
+    },
+    {
+      "id": 3,
+      "type": "bride",
+      "name": "Emma Johnson",
+      "age": 27,
+      "occupation": "Marketing Manager",
+      "location": "Chicago, IL"
+    },
+    {
+      "id": 4,
+      "type": "bride",
+      "name": "Sophia Brown",
+      "age": 30,
+      "occupation": "Teacher",
+      "location": "Houston, TX"
+    }
+  ]
+}
