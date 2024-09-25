@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Login from './components/pages/Login';
-import Signup from './components/pages/Signup';
-import ChooseProfile from './components/pages/ChooseProfile';
+import Login from './components/pages/Auth/Login';
+import Signup from './components/pages/Auth/Signup';
+import HomePage from './components/pages/HomePage';
 import GroomProfiles from './components/pages/GroomProfiles';
 import BrideProfiles from './components/pages/BrideProfiles';
 import ProfileCreate from './components/pages/ProfileCreate';
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './components/pages/Auth/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
     element: <ProtectedRoute />,
     children: [
       {
-        path: '/choose-profile',
-        element: <ChooseProfile />,
+        path: '/home',
+        element: <HomePage />,
         children: [
           {
             path: 'groom',
@@ -31,12 +31,13 @@ const router = createBrowserRouter([
             path: 'bride',
             element: <BrideProfiles />,
           },
+          {
+            path: 'create-profile',
+            element: <ProfileCreate />,
+          }
         ],
-      },
-      {
-        path: '/create-profile',
-        element: <ProfileCreate />,
-      },
+      }
+      
     ],
   },
 ]);

@@ -24,7 +24,7 @@ const Login = () => {
       loginSchema.parse(formData);
       if (formData.username === 'user' && formData.password === '111111') {
         localStorage.setItem('isAuthenticated', 'true');
-        navigate('/choose-profile');
+        navigate('/home');
       } else {
         setErrors({ form: 'Invalid credentials. Please try again.' });
       }

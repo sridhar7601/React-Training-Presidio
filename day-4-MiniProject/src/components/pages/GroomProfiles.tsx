@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { User } from 'lucide-react';
+import { User, Heart } from 'lucide-react'; 
 
 interface Profile {
   id: number;
@@ -8,6 +8,7 @@ interface Profile {
   age: number;
   occupation: string;
   location: string;
+  likeCount: number;
 }
 
 export default function GroomProfiles() {
@@ -15,18 +16,25 @@ export default function GroomProfiles() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulating a 4-second delay before setting the data
     const fetchDataWithDelay = async () => {
       const response = await fetch('http://localhost:3001/profiles?type=groom');
       const data = await response.json();
       setTimeout(() => {
         setProfiles(data);
         setLoading(false);
-      }, 4000); // 4-second delay
+      }, 4000); 
     };
 
     fetchDataWithDelay();
   }, []);
+
+  const handleLike = (id: number) => {
+    setProfiles(
+      profiles.map((profile) =>
+        profile.id === id ? { ...profile, likeCount: profile.likeCount + 1 } : profile
+      )
+    );
+  };
 
   if (loading) {
     return (
@@ -47,21 +55,28 @@ export default function GroomProfiles() {
   }
 
   return (
-    <>
-      {/* <h2 className="text-3xl font-bold text-gray-800 mb-6">Groom Profiles</h2> */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {profiles.map(profile => (
-          <div key={profile.id} className="bg-white p-6 rounded-lg shadow-lg max-w-sm">
-            <div className="flex items-center justify-center mb-4">
-              <User className="h-16 w-16 bg-gray-300 rounded-full" />
-            </div>
-            <h3 className="text-xl font-bold text-gray-800">{profile.name}</h3>
-            <p className="text-gray-600">Age: {profile.age}</p>
-            <p className="text-gray-600">Occupation: {profile.occupation}</p>
-            <p className="text-gray-600">Location: {profile.location}</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {profiles.map(profile => (
+        <div key={profile.id} className="bg-white p-6 rounded-lg shadow-lg max-w-sm">
+          <div className="flex items-center justify-center mb-4">
+            <User className="h-16 w-16 bg-gray-300 rounded-full" />
           </div>
-        ))}
-      </div>
-      </>
+          <h3 className="text-xl font-bold text-gray-800">{profile.name}</h3>
+          <p className="text-gray-600">Age: {profile.age}</p>
+          <p className="text-gray-600">Occupation: {profile.occupation}</p>
+          <p className="text-gray-600">Location: {profile.location}</p>
+          <div className="mt-4 flex items-center justify-between">
+            <button
+              className="text-red-500 flex items-center"
+              onClick={() => handleLike(profile.id)}
+            >
+              <Heart className="w-5 h-5 mr-2" />
+              Like
+            </button>
+            <p className="text-gray-600">{profile.likeCount} Likes</p>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }

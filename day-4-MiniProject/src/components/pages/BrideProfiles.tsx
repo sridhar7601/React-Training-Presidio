@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { User } from 'lucide-react';
+import { User, Heart } from 'lucide-react'; // Importing Heart icon for the like button
 
 interface Profile {
   id: number;
@@ -8,13 +8,13 @@ interface Profile {
   age: number;
   occupation: string;
   location: string;
+  likeCount: number;  // New field for the like count
 }
 
 export default function BrideProfiles() {
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [loading, setLoading] = useState(true);
 
- 
   useEffect(() => {
     // Simulating a 4-second delay before setting the data
     const fetchDataWithDelay = async () => {
@@ -28,6 +28,14 @@ export default function BrideProfiles() {
 
     fetchDataWithDelay();
   }, []);
+
+  const handleLike = (id: number) => {
+    setProfiles(
+      profiles.map((profile) =>
+        profile.id === id ? { ...profile, likeCount: profile.likeCount + 1 } : profile
+      )
+    );
+  };
 
   if (loading) {
     return (
@@ -49,7 +57,6 @@ export default function BrideProfiles() {
 
   return (
     <>
-      {/* <h2 className="text-3xl font-bold text-gray-800 mb-6">Groom Profiles</h2> */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {profiles.map(profile => (
           <div key={profile.id} className="bg-white p-6 rounded-lg shadow-lg max-w-sm">
@@ -60,9 +67,19 @@ export default function BrideProfiles() {
             <p className="text-gray-600">Age: {profile.age}</p>
             <p className="text-gray-600">Occupation: {profile.occupation}</p>
             <p className="text-gray-600">Location: {profile.location}</p>
+            <div className="mt-4 flex items-center justify-between">
+              <button
+                className="text-red-500 flex items-center"
+                onClick={() => handleLike(profile.id)}
+              >
+                <Heart className="w-5 h-5 mr-2" />
+                Like
+              </button>
+              <p className="text-gray-600">{profile.likeCount} Likes</p>
+            </div>
           </div>
         ))}
       </div>
-      </>
+    </>
   );
 }
