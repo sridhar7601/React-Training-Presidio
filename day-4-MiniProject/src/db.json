@@ -53,6 +53,26 @@
       "occupation": "Developer",
       "location": "Coimbatore",
       "likeCount": 4
+    },
+    {
+      "id": "978e",
+      "type": "groom",
+      "name": "sakthi",
+      "age": "23",
+      "occupation": "dev",
+      "location": "cbe",
+      "likeCount": 10
+
+    },
+    {
+      "id": "184a",
+      "type": "bride",
+      "name": "lavanya",
+      "age": "24",
+      "occupation": "CEO",
+      "location": "banglore",
+      "likeCount": 10
+
     }
   ]
 }

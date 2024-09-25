@@ -7,6 +7,7 @@ interface Profile {
   age: number;
   occupation: string;
   location: string;
+  likeCount: number; 
 }
 
 export default function ProfileCreate() {
@@ -16,6 +17,7 @@ export default function ProfileCreate() {
     age: 0,
     occupation: '',
     location: '',
+    likeCount: 0,
   });
   const navigate = useNavigate();
 
@@ -39,7 +41,7 @@ export default function ProfileCreate() {
       });
 
       if (response.ok) {
-        navigate('/choose-profile');
+        navigate('/home');
       } else {
         console.error('Error creating profile:', await response.json());
       }

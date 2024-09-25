@@ -2,13 +2,6 @@ import { Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export default function HomePage() {
-  // const [loading, setLoading] = useState(true);
-
-  // Simulating a loading effect (you can customize this)
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000); // Assume 1-second loading time
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100">
