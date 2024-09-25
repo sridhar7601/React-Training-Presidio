@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useProfileContext } from './../contexts/ProfileContext';
 
 interface Profile {
   type: 'groom' | 'bride';
@@ -7,7 +8,7 @@ interface Profile {
   age: number;
   occupation: string;
   location: string;
-  likeCount: number; 
+  likeCount: number;
 }
 
 export default function ProfileCreate() {
@@ -20,8 +21,9 @@ export default function ProfileCreate() {
     likeCount: 0,
   });
   const navigate = useNavigate();
+  const { profiles, setProfiles } = useProfileContext();
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setProfile({
       ...profile,
       [event.target.name]: event.target.value,
@@ -41,6 +43,8 @@ export default function ProfileCreate() {
       });
 
       if (response.ok) {
+        const newProfile = await response.json();
+        setProfiles([...profiles, newProfile]);
         navigate('/home');
       } else {
         console.error('Error creating profile:', await response.json());

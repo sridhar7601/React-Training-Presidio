@@ -62,7 +62,6 @@
       "occupation": "dev",
       "location": "cbe",
       "likeCount": 10
-
     },
     {
       "id": "184a",
@@ -72,7 +71,15 @@
       "occupation": "CEO",
       "location": "banglore",
       "likeCount": 10
-
+    },
+    {
+      "id": "3ba1",
+      "type": "bride",
+      "name": "ramya",
+      "age": "24",
+      "occupation": "CEEO",
+      "location": "cbe",
+      "likeCount": 0
     }
   ]
 }
