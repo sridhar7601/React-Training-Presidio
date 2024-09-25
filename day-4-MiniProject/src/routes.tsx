@@ -2,8 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Login from './components/pages/Auth/Login';
 import Signup from './components/pages/Auth/Signup';
 import HomePage from './components/pages/HomePage';
-import GroomProfiles from './components/pages/GroomProfiles';
-import BrideProfiles from './components/pages/BrideProfiles';
+import Profiles from './components/pages/Profiles'; 
 import ProfileCreate from './components/pages/ProfileCreate';
 import ProtectedRoute from './components/pages/Auth/ProtectedRoute';
 
@@ -24,12 +23,12 @@ const router = createBrowserRouter([
         element: <HomePage />,
         children: [
           {
-            path: 'groom',
-            element: <GroomProfiles />,
+            path: ':type',
+            element: <Profiles />, // Reuse the same Profiles component
           },
           {
-            path: 'bride',
-            element: <BrideProfiles />,
+            path: ':type',
+            element: <Profiles />, // Reuse the same Profiles component
           },
           {
             path: 'create-profile',
