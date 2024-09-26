@@ -1,56 +1,43 @@
-import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
-
-interface Profile {
-  id: number;
-  type: string;
-  name: string;
-  age: number;
-  occupation: string;
-  location: string;
-  likeCount: number;
-}
+// src/context/ProfileContext.tsx
+import React, { createContext, useContext, ReactNode } from 'react';
+import { useProfiles } from '../hooks/useProfiles';
+import { Profile } from '../../types/types';
 
 interface ProfileContextType {
   profiles: Profile[];
-  loading: boolean;
-  setProfiles: React.Dispatch<React.SetStateAction<Profile[]>>;
-  fetchProfiles: (type: string) => Promise<void>;
-  handleLike: (id: number) => void;
+  isLoading: boolean;
+  error: Error | null;
+  createProfile: (profile: Omit<Profile, 'id' | 'isLiked'>) => Promise<void>;
+  updateProfile: (profile: Profile) => Promise<void>;
+  deleteProfile: (id: number) => Promise<void>;
+  toggleLikeProfile: (id: number) => Promise<void>;
 }
 
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
 export const ProfileProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [profiles, setProfiles] = useState<Profile[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const fetchProfiles = async (type: string) => {
-    setLoading(true);
-    try {
-      const response = await fetch(`http://localhost:3001/profiles?type=${type}`);
-      const data = await response.json();
-      
-      // Add 3 seconds delay before setting the profiles
-      setTimeout(() => {
-        setProfiles(data);
-        setLoading(false);
-      }, 2000);
-    } catch (error) {
-      console.error('Error fetching profiles:', error);
-      setLoading(false);
-    }
-  };
-
-  const handleLike = (id: number) => {
-    setProfiles(
-      profiles.map(profile =>
-        profile.id === id ? { ...profile, likeCount: profile.likeCount + 1 } : profile
-      )
-    );
-  };
+  const {
+    profiles,
+    isLoading,
+    error,
+    createProfile,
+    updateProfile,
+    deleteProfile,
+    toggleLikeProfile
+  } = useProfiles();
 
   return (
-    <ProfileContext.Provider value={{ profiles, loading, setProfiles, fetchProfiles, handleLike }}>
+    <ProfileContext.Provider
+      value={{
+        profiles,
+        isLoading,
+        error,
+        createProfile,
+        updateProfile,
+        deleteProfile,
+        toggleLikeProfile
+      }}
+    >
       {children}
     </ProfileContext.Provider>
   );

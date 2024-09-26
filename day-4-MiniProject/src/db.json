@@ -1,85 +1,68 @@
 {
   "profiles": [
     {
-      "id": "1",
       "type": "groom",
       "name": "John Doe",
-      "age": 28,
+      "age": 24,
       "occupation": "Software Engineer",
       "location": "New York, NY",
-      "likeCount": 5
+      "id": "1",
+      "isLiked": false
     },
     {
-      "id": "2",
+      "id": "34c0",
       "type": "groom",
-      "name": "Mike Smith",
-      "age": 32,
-      "occupation": "Doctor",
-      "location": "Los Angeles, CA",
-      "likeCount": 3
-    },
-    {
-      "id": "3",
-      "type": "bride",
-      "name": "Emma Johnson",
-      "age": 27,
-      "occupation": "Marketing Manager",
-      "location": "Chicago, IL",
-      "likeCount": 7
-    },
-    {
-      "id": "4",
-      "type": "bride",
-      "name": "Sophia Brown",
-      "age": 30,
-      "occupation": "Teacher",
-      "location": "Houston, TX",
-      "likeCount": 2
-    },
-    {
-      "id": "4534",
-      "type": "bride",
-      "name": "Sridhar",
-      "age": 24,
-      "occupation": "Developer",
-      "location": "Coimbatore",
-      "likeCount": 10
-    },
-    {
-      "id": "4a45",
-      "type": "groom",
-      "name": "Sruthi",
-      "age": 23,
-      "occupation": "Developer",
-      "location": "Coimbatore",
-      "likeCount": 4
-    },
-    {
-      "id": "978e",
-      "type": "groom",
-      "name": "sakthi",
-      "age": "23",
-      "occupation": "dev",
-      "location": "cbe",
-      "likeCount": 10
-    },
-    {
-      "id": "184a",
-      "type": "bride",
-      "name": "lavanya",
+      "name": "saravanam",
       "age": "24",
       "occupation": "CEO",
-      "location": "banglore",
-      "likeCount": 10
+      "location": "Coimbatore",
+      "likeCount": 0,
+      "isLiked": true
     },
     {
-      "id": "3ba1",
+      "id": "e3a0",
       "type": "bride",
-      "name": "ramya",
+      "name": "sruthi",
       "age": "24",
-      "occupation": "CEEO",
-      "location": "cbe",
+      "occupation": "CEO",
+      "location": "Coimbatore",
+      "likeCount": 0,
+      "isLiked": true
+    },
+    {
+      "id": "a2bc",
+      "type": "bride",
+      "name": "Sandhya",
+      "age": "24",
+      "occupation": "CEO",
+      "location": "Coimbatore",
       "likeCount": 0
+    },
+    {
+      "id": "1fde",
+      "type": "groom",
+      "name": "Ram",
+      "age": 30,
+      "occupation": "Engineer",
+      "location": "Bangalore"
+    },
+    {
+      "id": "8ac5",
+      "type": "bride",
+      "name": "Ayushi",
+      "age": 23,
+      "occupation": "Developer",
+      "location": "Madhya Pradesh",
+      "isLiked": true
+    },
+    {
+      "id": "2dcc",
+      "type": "bride",
+      "name": "Janhvi Kapoor",
+      "age": 27,
+      "occupation": "Actoress",
+      "location": "Mumbai",
+      "isLiked": true
     }
   ]
 }
