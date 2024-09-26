@@ -9,23 +9,23 @@
 // const router = createBrowserRouter([
 //   {
 //     path: '/',
-//     element: <LandingPage />, // Default Landing Page
+//     element: <LandingPage />,
 //   },
 //   {
 //     path: '/home',
-//     element: <HomePage />, // Home Page with links to profiles
+//     element: <HomePage />,
 //     children: [
 //       {
 //         path: ':type',
-//         element: <Profiles />, // Groom Profiles
+//         element: <Profiles />, 
 //       },
 //       {
 //         path: ':type',
-//         element: <Profiles />, // Bride Profiles
+//         element: <Profiles />,
 //       },
 //       {
 //         path: 'create-profile',
-//         element: <ProfileCreate />, // Profile Creation Page
+//         element: <ProfileCreate />,
 //       }
 //     ],
 //   },

@@ -5,5 +5,5 @@ export interface Profile {
     age: number;
     occupation: string;
     location: string;
-    isLiked: boolean;  // Changed from likeCount to isLiked
+    isLiked: boolean;  
   }

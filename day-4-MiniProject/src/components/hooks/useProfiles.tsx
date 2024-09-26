@@ -1,5 +1,4 @@
-// src/hooks/useProfiles.ts
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import { fetchProfiles, createProfile, updateProfile, deleteProfile, toggleLikeProfile } from '../../Api/profileApi';
 import { Profile } from '../../types/types';

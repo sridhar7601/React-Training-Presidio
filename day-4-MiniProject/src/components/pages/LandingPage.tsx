@@ -10,8 +10,7 @@ const LandingPage = () => {
     brideCount: 0,
   });
   const [recentProfiles, setRecentProfiles] = useState([]);
-  const navigate = useNavigate(); // Use useNavigate hook
-
+  const navigate = useNavigate(); 
   useEffect(() => {
     fetch('http://localhost:3001/profiles')
       .then(response => response.json())

@@ -1,4 +1,3 @@
-// src/context/ProfileContext.tsx
 import React, { createContext, useContext, ReactNode } from 'react';
 import { useProfiles } from '../hooks/useProfiles';
 import { Profile } from '../../types/types';

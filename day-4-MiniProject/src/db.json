@@ -7,7 +7,7 @@
       "occupation": "Software Engineer",
       "location": "New York, NY",
       "id": "1",
-      "isLiked": false
+      "isLiked": true
     },
     {
       "id": "34c0",
@@ -27,7 +27,7 @@
       "occupation": "CEO",
       "location": "Coimbatore",
       "likeCount": 0,
-      "isLiked": true
+      "isLiked": false
     },
     {
       "id": "a2bc",
@@ -44,7 +44,8 @@
       "name": "Ram",
       "age": 30,
       "occupation": "Engineer",
-      "location": "Bangalore"
+      "location": "Bangalore",
+      "isLiked": false
     },
     {
       "id": "8ac5",
