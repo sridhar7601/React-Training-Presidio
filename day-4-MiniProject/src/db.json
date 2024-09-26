@@ -2,12 +2,12 @@
   "profiles": [
     {
       "type": "groom",
-      "name": "John Doe",
-      "age": 24,
+      "name": "Senapathi",
+      "age": 35,
       "occupation": "Software Engineer",
       "location": "New York, NY",
       "id": "1",
-      "isLiked": true
+      "isLiked": false
     },
     {
       "id": "34c0",
@@ -65,6 +65,33 @@
       "occupation": "Actoress",
       "location": "Mumbai",
       "isLiked": true
+    },
+    {
+      "id": "2d18",
+      "type": "bride",
+      "name": "Subashree B",
+      "age": 25,
+      "occupation": "Data engineer",
+      "location": "Coimbatore",
+      "isLiked": false
+    },
+    {
+      "type": "bride",
+      "name": "Haritha",
+      "age": 24,
+      "occupation": "super duper Developer",
+      "location": "Coimbatore",
+      "id": "d13c",
+      "isLiked": false
+    },
+    {
+      "type": "groom",
+      "name": "Nirmalmahesh",
+      "age": 40,
+      "occupation": "Lead Engineer",
+      "location": "Karur",
+      "id": "7382",
+      "isLiked": false
     }
   ]
 }
