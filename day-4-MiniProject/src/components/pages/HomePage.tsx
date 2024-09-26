@@ -7,6 +7,7 @@ import { Profile } from '../../types/types';
 import { PlusCircle, Search } from 'lucide-react';
 
 const HomePage: React.FC = () => {
+  // from context destructuring and getting all data
   const { 
     profiles, 
     isLoading: profilesLoading, 
@@ -20,17 +21,23 @@ const HomePage: React.FC = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [editingProfile, setEditingProfile] = useState<Profile | null>(null);
 
+//where code runs when
+// 1 profile sets at initial 
+// 2 when filtered with bride or broom
+// 3 when used any search params
   const filteredProfiles = useMemo(() => {
     return profiles
       .filter(profile => currentType ? profile.type === currentType : true)
       .filter(profile => profile.name.toLowerCase().includes(searchQuery.toLowerCase()));
   }, [profiles, currentType, searchQuery]);
 
+//used to create the profile with react query 
   const handleCreateProfile = async (data: Omit<Profile, 'id' | 'isLiked'>) => {
     await createProfile(data);
     setIsCreateModalOpen(false);
   };
 
+//used to update the profile with react query 
   const handleUpdateProfile = async (data: Omit<Profile, 'id' | 'isLiked'>) => {
     if (editingProfile) {
       await updateProfile({ ...data, id: editingProfile.id, isLiked: editingProfile.isLiked });

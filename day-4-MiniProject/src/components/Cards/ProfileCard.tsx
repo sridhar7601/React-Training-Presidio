@@ -18,21 +18,21 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profile }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const { setProfiles } = useProfileContext();
 
-  // Handle delete profile
+  // handle delete profile
   const handleDelete = async (id: number) => {
     try {
       await fetch(`http://localhost:3001/profiles/${id}`, {
         method: 'DELETE',
       });
 
-      // Remove deleted profile from local state
+      // remove deleted profile from local state
       setProfiles(prevProfiles => prevProfiles.filter(p => p.id !== id));
     } catch (error) {
       console.error('Error deleting profile:', error);
     }
   };
 
-  // Handle like button click
+  // handle like button click
   const handleLike = async (id: number) => {
     try {
       const updatedProfile = { ...profile, likeCount: profile.likeCount + 1 };
@@ -45,7 +45,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ profile }) => {
         body: JSON.stringify({ likeCount: updatedProfile.likeCount }),
       });
 
-      // Update the profile in local state
+      // update the profile in local state
       setProfiles(prevProfiles =>
         prevProfiles.map(p => (p.id === id ? updatedProfile : p))
       );

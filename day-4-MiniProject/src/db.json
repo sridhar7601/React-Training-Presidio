@@ -27,7 +27,7 @@
       "occupation": "CEO",
       "location": "Coimbatore",
       "likeCount": 0,
-      "isLiked": false
+      "isLiked": true
     },
     {
       "id": "a2bc",
@@ -36,7 +36,8 @@
       "age": "24",
       "occupation": "CEO",
       "location": "Coimbatore",
-      "likeCount": 0
+      "likeCount": 0,
+      "isLiked": false
     },
     {
       "id": "1fde",

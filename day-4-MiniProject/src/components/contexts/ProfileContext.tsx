@@ -11,10 +11,11 @@ interface ProfileContextType {
   deleteProfile: (id: number) => Promise<void>;
   toggleLikeProfile: (id: number) => Promise<void>;
 }
-
+//creating a context for using usecontext hook
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
 export const ProfileProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  // from hook destructuring it and using as a context
   const {
     profiles,
     isLoading,
@@ -26,6 +27,7 @@ export const ProfileProvider: React.FC<{ children: ReactNode }> = ({ children })
   } = useProfiles();
 
   return (
+    // passing values to children with provider that can have all my contect states
     <ProfileContext.Provider
       value={{
         profiles,
@@ -41,7 +43,7 @@ export const ProfileProvider: React.FC<{ children: ReactNode }> = ({ children })
     </ProfileContext.Provider>
   );
 };
-
+// an error handlining for context 
 export const useProfileContext = () => {
   const context = useContext(ProfileContext);
   if (context === undefined) {
